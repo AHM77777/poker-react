@@ -1,0 +1,486 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cards {
+  display: flex;
+  font-size: 16px;
+}
+
+.card-corner.top-left {
+  text-align: left;
+}
+
+.card-corner.bottom-right {
+  text-align: left;
+  top: 52px;
+  position: relative;
+}
+
+.cards > div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-left: 50px;
+  perspective: 1000px;
+}
+
+.room-table {
+  display: block;
+  margin: 0 auto;
+  width: max-content;
+}
+
+.card {
+  display: block;
+  width: 100px;
+  height: 125px;
+  padding: 2px;
+  margin: 12px;
+  position: relative;
+  font-family: monospace;
+  cursor: pointer;
+  border: none !important;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 3px;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 5px silver);
+  background-color: #fff;
+  border-radius: 11px;
+  border: 1px solid rgba(0,0,0,.125);
+  backface-visibility: hidden;
+  transition: all 0.5s;
+}
+
+.card-back {
+  border: 6px solid #fff;
+  background: conic-gradient(
+    #000 25%,
+    #fff 25%,
+    #fff 50%,
+    #000 50%,
+    #000 75%,
+    #fff 75%
+  );
+  background-size: 20px 20px;
+  transform: rotateY(-180deg);
+}
+
+.card-♠,
+.card-♣ {
+  color: #000;
+}
+
+.card-♥,
+.card-♦ {
+  color: red;
+}
+
+.card.flipped .card-front {
+  transform: rotateY(180deg);
+}
+
+.card.flipped .card-back {
+  transform: rotateY(0deg);
+}
+
+/* Card faces (A) */
+.card[number="A"] .symbols > div:only-child {
+  left: 40px;
+}
+
+/* Cards faces (K, J, Q) */
+.card[number="J"] > .card-front,
+.card[number="Q"] > .card-front,
+.card[number="K"] > .card-front {
+  background: url(./card-fronts.png) no-repeat, #fff;
+  background-size: 300px;
+}
+
+/* Bg Card positioning */
+.card[number="J"]  > .card-front {
+  background-position-x: 3px;
+}
+
+.card[number="Q"]  > .card-front {
+  background-position-x: -95px;
+}
+
+.card[number="K"]  > .card-front {
+  background-position-x: -194px;
+}
+
+/* Bg vertical positioning*/
+.card.card-♥  > .card-front {
+  background-position-y: -149px;
+}
+
+.card.card-♦  > .card-front {
+  background-position-y: -293px;
+}
+
+.card.card-♣  > .card-front {
+  background-position-y: -437px;
+}
+
+/* Card faces (numbers) */
+/* (2) */
+.card[number="2"] .symbols > div:first-child {
+  left: 40px;
+  top: -25px;
+}
+
+.card[number="2"] .symbols > div:last-child {
+  left: 40px;
+  top: 25px;
+  transform: rotate(180deg);
+}
+
+/* (3) */
+.card[number="3"] .symbols > div:first-child {
+  left: 40px;
+  top: -25px;
+}
+
+.card[number="3"] .symbols > div:nth-child(2) {
+  left: 40px;
+}
+
+.card[number="3"] .symbols > div:last-child {
+  left: 40px;
+  top: 25px;
+  transform: rotate(180deg);
+}
+
+/* (4) */
+.card[number="4"] .symbols > div:first-child {
+  left: 23px;
+  top: -24px;
+}
+
+.card[number="4"] .symbols > div:nth-child(2) {
+  left: 62px;
+  top: -24px;
+}
+
+.card[number="4"] .symbols > div:nth-child(3) {
+  left: 23px;
+  top: 24px;
+  transform: rotate(180deg);
+}
+
+.card[number="4"] .symbols > div:last-child {
+  left: 62px;
+  top: 24px;
+  transform: rotate(180deg);
+}
+
+/* (5) */
+.card[number="5"] .symbols > div:first-child {
+  left: 23px;
+  top: -24px;
+}
+
+.card[number="5"] .symbols > div:nth-child(2) {
+  left: 62px;
+  top: -24px;
+}
+
+.card[number="5"] .symbols > div:nth-child(3) {
+  left: 43px;
+  top: 2px;
+}
+
+.card[number="5"] .symbols > div:nth-child(4) {
+  left: 23px;
+  top: 24px;
+  transform: rotate(180deg);
+}
+
+.card[number="5"] .symbols > div:last-child {
+  left: 62px;
+  top: 24px;
+  transform: rotate(180deg);
+}
+
+/* (6) */
+.card[number="6"] .symbols > div:first-child {
+  left: 23px;
+  top: -24px;
+}
+
+.card[number="6"] .symbols > div:nth-child(2) {
+  left: 62px;
+  top: -24px;
+}
+
+.card[number="6"] .symbols > div:nth-child(3) {
+  left: 24px;
+  top: 2px;
+}
+
+.card[number="6"] .symbols > div:nth-child(4) {
+  left: 62px;
+  top: 2px;
+}
+
+.card[number="6"] .symbols > div:nth-child(5) {
+  left: 23px;
+  top: 24px;
+  transform: rotate(180deg);
+}
+
+.card[number="6"] .symbols > div:last-child {
+  left: 62px;
+  top: 24px;
+  transform: rotate(180deg);
+}
+
+/* (7) */
+.card[number="7"] .symbols > div:first-child {
+  left: 23px;
+  top: -24px;
+}
+
+.card[number="7"] .symbols > div:nth-child(2) {
+  left: 62px;
+  top: -24px;
+}
+
+.card[number="7"] .symbols > div:nth-child(3) {
+  left: 24px;
+  top: 2px;
+  transform: rotate(180deg);
+}
+
+.card[number="7"] .symbols > div:nth-child(4) {
+  left: 62px;
+  top: 2px;
+  transform: rotate(180deg);
+}
+
+.card[number="7"] .symbols > div:nth-child(5) {
+  left: 23px;
+  top: 24px;
+  transform: rotate(180deg);
+}
+
+.card[number="7"] .symbols > div:nth-child(6) {
+  left: 42px;
+  top: 17px;
+  font-size: .9em;
+  transform: rotate(180deg);
+}
+
+.card[number="7"] .symbols > div:last-child {
+  left: 62px;
+  top: 24px;
+  transform: rotate(180deg);
+}
+
+/* (8) */
+.card[number="8"] .symbols > div:first-child {
+  left: 23px;
+  top: -24px;
+}
+
+.card[number="8"] .symbols > div:nth-child(2) {
+  left: 62px;
+  top: -24px;
+}
+
+.card[number="8"] .symbols > div:nth-child(3) {
+  left: 24px;
+  top: -6px;
+}
+
+.card[number="8"] .symbols > div:nth-child(4) {
+  left: 62px;
+  top: -6px;
+}
+
+.card[number="8"] .symbols > div:nth-child(5) {
+  left: 23px;
+  top: 9px;
+  transform: rotate(180deg);
+}
+
+.card[number="8"] .symbols > div:nth-child(6) {
+  left: 62px;
+  top: 9px;
+  transform: rotate(180deg);
+}
+
+.card[number="8"] .symbols > div:nth-child(7) {
+  left: 23px;
+  top: 26px;
+  transform: rotate(180deg);
+}
+
+.card[number="8"] .symbols > div:last-child {
+  left: 62px;
+  top: 26px;
+  transform: rotate(180deg);
+}
+
+/* (9) */
+.card[number="9"] .symbols > div:first-child {
+  left: 23px;
+  top: -24px;
+}
+
+.card[number="9"] .symbols > div:nth-child(2) {
+  left: 62px;
+  top: -24px;
+}
+
+.card[number="9"] .symbols > div:nth-child(3) {
+  left: 24px;
+  top: -6px;
+}
+
+.card[number="9"] .symbols > div:nth-child(4) {
+  left: 62px;
+  top: -6px;
+}
+
+.card[number="9"] .symbols > div:nth-child(5) {
+  left: 23px;
+  top: 9px;
+  transform: rotate(180deg);
+}
+
+.card[number="9"] .symbols > div:nth-child(6) {
+  left: 62px;
+  top: 9px;
+  transform: rotate(180deg);
+}
+
+.card[number="9"] .symbols > div:nth-child(7) {
+  left: 42px;
+  top: 1px;
+}
+
+.card[number="9"] .symbols > div:nth-child(8) {
+  left: 23px;
+  top: 26px;
+  transform: rotate(180deg);
+}
+
+.card[number="9"] .symbols > div:last-child {
+  left: 62px;
+  top: 26px;
+  transform: rotate(180deg);
+}
+
+/* (10) */
+.card[number="10"] .symbols > div:first-child {
+  left: 23px;
+  top: -24px;
+}
+
+.card[number="10"] .symbols > div:nth-child(2) {
+  left: 62px;
+  top: -24px;
+}
+
+.card[number="10"] .symbols > div:nth-child(3) {
+  left: 24px;
+  top: -6px;
+}
+
+.card[number="10"] .symbols > div:nth-child(4) {
+  left: 62px;
+  top: -6px;
+}
+
+.card[number="10"] .symbols > div:nth-child(5) {
+  left: 42px;
+  top: -16px;
+}
+
+.card[number="10"] .symbols > div:nth-child(6) {
+  left: 23px;
+  top: 9px;
+  transform: rotate(180deg);
+}
+
+.card[number="10"] .symbols > div:nth-child(7) {
+  left: 62px;
+  top: 9px;
+  transform: rotate(180deg);
+}
+
+.card[number="10"] .symbols > div:nth-child(8) {
+  left: 23px;
+  top: 26px;
+  transform: rotate(180deg);
+}
+
+.card[number="10"] .symbols > div:nth-child(9) {
+  left: 42px;
+  top: 18px;
+  transform: rotate(180deg);
+}
+
+.card[number="10"] .symbols > div:last-child {
+  left: 62px;
+  top: 26px;
+  transform: rotate(180deg);
+}
+
+.card-corner.bottom-right > div {
+  transform: rotate(180deg);
+}
+
+.symbols {
+  position: relative;
+  left: 6px;
+  top: 19px;
+}
+
+.symbols div {
+  position: absolute;
+}
